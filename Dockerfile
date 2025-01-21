@@ -7,7 +7,7 @@ ENV USERNAME="cbrown" \
 COPY --chmod=700 ./entrypoint.sh /tmp/entrypoint.sh
 COPY ./skel/ /etc/skel
 COPY ./www/ /www
-COPY ./lighttpd/lighttpd.conf /etc/lighttpd.conf
+COPY ./lighttpd/lighttpd.conf /etc/lighttpd/lighttpd.conf
 
 RUN apk update && \
     apk add --no-cache\

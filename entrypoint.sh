@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-TTYD_ARGS="login -p8888 -m1 -W"
+TTYD_ARGS="-p8888 -m1 -W"
 
 if [ -f "/www/index.html" ]; then
     TTYD_ARGS="$TTYD_ARGS -I /www/index.html"
@@ -21,7 +21,7 @@ echo $TZ > /etc/timezone
 [ $AUTOLOGIN == "true" ] && TTYD_ARGS="$TTYD_ARGS -f $USERNAME"
 
 # Start lighttpd server
-lighttpd -f /etc/lighttpd.conf
+lighttpd -f /etc/lighttpd/lighttpd.conf
 
 # Start ttyd
-exec ttyd $TTYD_ARGS "$@"
+exec ttyd $TTYD_ARGS login "$@"
